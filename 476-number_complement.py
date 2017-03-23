@@ -15,7 +15,7 @@ Output: 0
 Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
 '''
 def findComplement(num):
-	return ~num
+	return int(bin(num).lstrip('0b').replace('1','o').replace('0', '1').replace('o', '0'), 2)
 
 if __name__ == '__main__':
 	print(findComplement(5))
