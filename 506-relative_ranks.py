@@ -15,24 +15,13 @@ All the scores of athletes are guaranteed to be unique.
 def findRelativeRanks(nums):
 	rankDict = {}
 	newNums = nums[::]
-	newNums.sort()
+	newNums.sort(reverse=True)
 	
-	i = 1
-	while newNums:
-		if i == 1:
-			rankDict[newNums.pop()] = "Gold Medal"
-		elif i == 2:
-			rankDict[newNums.pop()] = "Silver Medal"
-		elif i == 3:
-			rankDict[newNums.pop()] = "Bronze Medal"
-		else:
-			rankDict[newNums.pop()] = str(i)
-		i += 1
+	rank = ["Gold Medal", "Silver Medal", "Bronze Medal"] + list(map(str, range(4, len(newNums) + 1)))
 	
-	for i in range(len(nums)):
-		nums[i] = rankDict.get(nums[i])
+	rankDict = dict(zip(newNums, rank))
 	
-	return nums
+	return list(map(rankDict.get, nums))
 
 if __name__ == '__main__':
 	print(findRelativeRanks([5,4,3,2,1]))
