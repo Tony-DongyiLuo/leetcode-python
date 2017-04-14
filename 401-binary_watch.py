@@ -21,6 +21,7 @@ def readBinaryWatch(num):
         :type num: int
         :rtype: List[str]
         """
+	
 	from itertools import combinations
 	timeList = []
 	hourList = [8, 4, 2, 1]
@@ -52,6 +53,14 @@ def readBinaryWatch(num):
 				timeList.append(hour + ":" + minute) if len(minute) == 2 else timeList.append(hour + ":" + "0" + minute)
 	
 	return timeList
-		
+	'''
+	timeList = []
+	for h in range(12):
+		for m in range(60):
+			if (bin(h) + bin(m)).count("1") == num:
+				timeList.append("%d:%02d" % (h, m))
+	
+	return timeList
+	'''
 if __name__ == '__main__':
-	print(readBinaryWatch(6))
+	print(readBinaryWatch(1))
