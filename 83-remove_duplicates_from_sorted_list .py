@@ -21,9 +21,9 @@ class Solution(object):
 		previous = ListNode(None)
 		current = head
         while current:
-			current = head
+			
 			if current.val == previous.val:
-				current.next = current.next.next
+				previous.next = current.next
 			else:
 				previous = current
 				
