@@ -13,7 +13,7 @@ def isPalindrome(x):
 		x = x // 10
 	sum = 10 * sum + x
 	
-	return origin == sum and x > 0
+	return origin == sum and x >= 0
 
 if __name__ == '__main__':
 	print(isPalindrome(121))
