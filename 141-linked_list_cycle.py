@@ -18,11 +18,11 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-		while head:
-			if head.next.val == head.val:
+		slow = fast = head
+		while fast and fast.next
+			fast = fast.next.next
+			slow = slow.next
+			if slow is fast:
 				return True
-			head.next.val = head.val
-			head = head.next
 		
-		if head == None:
-			return False
+		return False
